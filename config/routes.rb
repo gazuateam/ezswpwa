@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
-
-  resources :sessions, only: [:create, :destroy]
-
-  get 'main/home'
-  root "main#home"
+  get 'homes/select'
+  get 'homes/connected'
+  get 'homes/waiting'
+  get 'homes/seller'
+  get 'homes/buyer'
+  get 'homes/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 end
