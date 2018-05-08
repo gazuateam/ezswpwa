@@ -6,6 +6,7 @@ class HomesController < ApplicationController
     require 'nokogiri'
     require 'open-uri'
     require 'nokogumbo'
+    require 'mechanize'
     #
     # document = Nokogiri::HTML(input)
     #
@@ -15,7 +16,7 @@ class HomesController < ApplicationController
     # document.at('title').text
 
     #############################
-    require 'mechanize'
+
 
     mechanize = Mechanize.new
     page = mechanize.get('http://menu.dining.ucla.edu/Menus')
@@ -56,5 +57,5 @@ class HomesController < ApplicationController
     # @e = @doc.xpath("//span//a").textxpath('//car:tire', 'car' => 'http://alicesautoparts.com/')
 
 
-    end
+  end
 end
