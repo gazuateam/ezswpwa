@@ -29,7 +29,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'bootsnap', '>= 1.1.0', require: false
+gem 'nokogiri'
+gem 'mechanize'
+gem 'nokogumbo'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
