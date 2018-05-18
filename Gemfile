@@ -35,6 +35,12 @@ gem 'thin'
 gem 'sync'
 gem "unicorn-rails"
 
+
+gem 'bootsnap', '>= 1.1.0', require: false
+gem 'nokogiri'
+gem 'mechanize'
+gem 'nokogumbo'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
