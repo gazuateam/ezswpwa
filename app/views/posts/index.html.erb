@@ -1,8 +1,7 @@
 <br /><br />
-<% @posts.each do |p| %>
-  <%= p.location %><br />
-  <%= p.created_at %><br />
-  <%= p.number %><br />
-  $<%= p.price %><br />
-  <br />
-<% end %>
+
+<div>
+  <% @posts.each do |post| %>
+    <%= sync partial: 'list', resource: post %>
+  <% end %>
+</div>
