@@ -1,0 +1,9 @@
+  <%= post.location %><br />
+  <%= post.created_at %><br />
+  <%= post.number %><br />
+  $<%= post.price %><br />
+  <form action="/posts/destroy/<%= post.id%>" method="POST">
+    <input type="hidden" name="id" value="<%= post.id %>" / />
+    <input type="submit" value="Delete"/>
+  </form>
+  <br />
