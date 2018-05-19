@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'main/buyerinput'
+
+  get 'main/dininghall'
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
