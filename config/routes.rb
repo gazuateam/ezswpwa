@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'posts/destroy/:id' => 'posts#destroy'
 
   get 'posts/index' => 'posts#index'
+  get 'posts/show/:id' => 'posts#show'
 
 
 

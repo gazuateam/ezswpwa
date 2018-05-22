@@ -1,9 +1,14 @@
+<div style="border-style: solid;">
   <%= post.location %><br />
   <%= post.created_at %><br />
   <%= post.number %><br />
   $<%= post.price %><br />
+  <form action="/posts/show/<%= post.id%>" method="GET">
+    <input type="hidden" name="id" value="<%= post.id %>" / />
+    <input type="submit" value="Select"/>
+  </form>
   <form action="/posts/destroy/<%= post.id%>" method="POST">
     <input type="hidden" name="id" value="<%= post.id %>" / />
     <input type="submit" value="Delete"/>
   </form>
-  <br />
+</div>
