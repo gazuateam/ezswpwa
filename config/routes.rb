@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  get 'main/buyerinput'
 
-  get 'main/dininghall'
+  get 'main/dininghall' => "main#dininghall"
+  post 'create' => "main#create"
+
+  get 'main/buyerinput/:swipe_id' => "main#buyerinput"
+
+  post 'main/cancel/:swipe_id' => "main#cancel"
+
+  post 'main/input/:swipe_id'=> "main#input"
+
+##########################
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
