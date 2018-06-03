@@ -1,0 +1,9 @@
+<%= @post.buyer_name %><br />
+<%= @post.location %><br />
+Number of People: <%= @post.number %><br />
+Offered Price: <%= @post.price %><br />
+
+<form action="/posts/index" method="GET">
+  <input type="submit" value="Ignore"/>
+  <input type="submit" value="Accept"/>
+</form>
