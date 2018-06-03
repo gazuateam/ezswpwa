@@ -1,0 +1,7 @@
+<br /><br />
+
+<div>
+  <% @posts.each do |post| %>
+    <%= sync partial: 'list', resource: post %>
+  <% end %>
+</div>
