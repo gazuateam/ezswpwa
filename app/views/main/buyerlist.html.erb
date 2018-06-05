@@ -1,0 +1,25 @@
+<h1>Main#buyerlist</h1>
+
+
+<form action="/sell" method="post">
+  <p> Please select the dining hall</p>
+  <input type="radio" name="dininghall" value="bplate" type="text" checked/> Bplate</input>
+  <input type="radio" name="dininghall" value="covel" type="text"> Covel </input>
+  <input type="radio" name="dininghall" value="deneve" type="text"/> Deneve</input>
+  <input type="radio" name="dininghall" value="feast" type="text"/> Feast</input>
+  <input type = "submit" value="Sell">
+
+</form>
+
+
+<br><br>
+
+
+<% @swipe.each do |s|%>
+  <% if (s.dininghall == @dininghall) %>
+  <div style = "border : 3px solid black; margin-bottom: 10px; margin-left: 100px; margin-right: 100px;" >
+    $<%= s.price %> for <%=s.swipes%> people at <%= s.dininghall%>     <%=s.created_at%><br>
+  </div>
+  <br>
+  <% end %>
+<% end %>

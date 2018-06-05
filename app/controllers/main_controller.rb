@@ -1,10 +1,39 @@
 class MainController < ApplicationController
+  helper_method :current_user
+
   def create
     @swipe = Swipe.new
     @swipe.dininghall = params[:dininghall]
 
     @swipe.save
     redirect_to "/main/buyerinput/#{@swipe.id}"
+  end
+
+  def swipelist
+    @dininghall = Sell.find(params[:dininghall])
+  end
+
+  def sell
+    @dininghall = Sell.new
+    @dininghall.dininghall = params[:dininghall]
+
+    @dininghall.save
+    redirect_to "/main/buyerlist/#{@dininghall.dininghall}"
+
+
+    # @swipe = Swipe.find(params[:dininghall])
+  end
+
+  def buyerlist
+
+    @swipe = Swipe.all
+
+    @swipe3 = Swipe.find_by dininghall: "#{params[:dininghall]}"
+
+    @swipe2 = Swipe.where(dininghall: "#{params[:dininghall]}").take
+
+
+    @dininghall = "#{params[:dininghall]}"
   end
 
   def cancel
@@ -19,11 +48,15 @@ class MainController < ApplicationController
   end
 
   def input
+    #@current_user ||= User.find(session[:user_id]) if session[:user_id]
+    # @uid = current_user.uid
+
     @swipe = Swipe.find(params[:swipe_id])
     @swipe.swipes = params[:people]
     @swipe.price = params[:price]
+    # @swipe.uid = @uid
     @swipe.save
-    redirect_to "/main/home"
+    redirect_to "/main/wait"
   end
 
   def dininghall
@@ -64,7 +97,6 @@ class MainController < ApplicationController
     #sending dininghall data to db
 
   end
-
 
   def home
     require 'rubygems'

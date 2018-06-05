@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413070238) do
+ActiveRecord::Schema.define(version: 20180604074447) do
 
   create_table "posts", force: :cascade do |t|
     t.string "location"
@@ -24,12 +24,8 @@ ActiveRecord::Schema.define(version: 20180413070238) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
-    t.string "oauth_token"
-    t.datetime "oauth_expires_at"
+  create_table "sells", force: :cascade do |t|
+    t.string "dininghall"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +35,18 @@ ActiveRecord::Schema.define(version: 20180413070238) do
     t.string "swipes"
     t.string "price"
     t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
