@@ -1,0 +1,63 @@
+<h1>Main#buyerinput</h1>
+
+<form action="/main/input/<%= @swipe.id %>" method="post">
+  <div class="horionly">
+    <div>
+      <h2> Number of people </h2>
+    </div>
+    <div>
+      <select name="people" id="people" type="integer">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10+</option>
+      </select>
+      <br><br>
+    </div>
+  </div>
+  <div class="horionly">
+    <div>
+      <h2> Price </h2>
+    </div>
+    <div>
+      <select name="price" id="price" type="integer">
+        <option value="3.0">$3.0</option>
+        <option value="3.5">$3.5</option>
+        <option value="4.0">$4.0</option>
+        <option value="4.5">$4.5</option>
+        <option value="5.0">$5.0</option>
+        <option value="5.5">$5.5</option>
+        <option value="6.0">$6.0</option>
+        <option value="6.5">$6.5</option>
+        <option value="7.0">$7.0</option>
+        <option value="7.5">$7.5</option>
+        <option value="8.0">$8.0</option>
+      </select>
+      <br><br>
+    </div>
+  </div>
+  <!-- button calculate and make the alert pop up with Total Price: $ -->
+  <input type="submit" value="Confirm">
+  <a href="/main/cancel/<%= @swipe.id %>" data-confirm="Do you really want to cancel?" data-method="post"><button>Cancel</button></a>
+</form>
+
+<button onclick="calculate()"> Calculate </button>
+
+<script>
+  function calculate() { // calculates the total price
+
+      var people = document.getElementById("people").value;
+      var price = document.getElementById("price").value;
+      var total = people * price;
+
+      alert(total)
+  }
+
+</script>

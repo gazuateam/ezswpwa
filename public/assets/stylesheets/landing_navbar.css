@@ -1,0 +1,44 @@
+.topnav {
+    background-color: #ffffff;
+    overflow: hidden;
+    /* align: right; */
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+
+    float: left;
+    color: #00A5E5;
+    text-align: center;
+    /* align: right;  */
+    /* padding: 8px 8px; */
+    text-decoration: none;
+    font-size: 23px;
+    padding: 0px 6px;
+    font-family: Roboto;
+    /* float: right; */
+}
+
+/* Change the color of links on hover */
+/* .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+} */
+
+/* Add a color to the active/current link */
+/* .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+} */
+
+.topnav-right {
+  float: right;
+  /* align: right;  */
+  padding: 8px 8px;
+}
+
+.Sign-in {
+  float: right;
+  padding: 6px 6px;
+}

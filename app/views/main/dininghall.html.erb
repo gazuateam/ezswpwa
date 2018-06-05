@@ -1,0 +1,175 @@
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag "dininghall" %>
+
+</head>
+<body>
+
+  <div align="center" class = "outwrap" >
+    <div class = "hori">
+        <input type = "hidden" name
+          <!-- Trigger the modal with a button -->
+        <!-- <div class = "nothori"> -->
+          <button data-toggle="modal" data-target="#myModal-bplate" class="dininghall bplate" accesskey="b">
+            <img class ="diningimage" src = "/assets/image/bplate.jpeg">
+          </button><br>
+          <!-- <input type="radio" name="dininghall" value="bplate" /> Bplate -->
+        <!-- </div> -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal-bplate" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                <h4 class="modal-title"><%= @bplate_date%></h4>
+              </div>
+              <div class="modal-body">
+                <p><%=@bplate_menu%></p>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <br>
+        <!-- <div class = "nothori"> -->
+          <button data-toggle="modal" data-target="#myModal-covel" class="dininghall covel" accesskey="c">
+            <img class ="diningimage" src = "/assets/image/covel.jpg">
+          </button><br>
+          <!-- <input type="radio" name="dininghall" value="covel" /> Covel -->
+        <!-- </div> -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal-covel" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                <h4 class="modal-title"><%=@covel_date%></h4>
+              </div>
+              <div class="modal-body">
+                <p><%= @covel_menu %></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+    </div>
+
+    <div class = "hori">
+        <!-- <div class = "nothori"> -->
+          <button data-toggle="modal" data-target="#myModal-deneve" class="dininghall deneve" accesskey="d">
+            <img class ="diningimage" src = "/assets/image/deneve.jpg">
+          </button><br><br>
+          <!-- <input type="radio" name="dininghall" value="deneve" /> Deneve -->
+        <!-- </div><br> -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal-deneve" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                  <h4 class="modal-title"><%=@deneve_date%></h4>
+                </div>
+                <div class="modal-body">
+                  <p><%= @deneve_menu %></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        <br>
+
+        <!-- <div class = "nothori"> -->
+          <button data-toggle="modal" data-target="#myModal-feast" class="dininghall feast" accesskey="f">
+          <img class ="diningimage" src = "/assets/image/rieber.jpg">
+          </button><br><br>
+          <!-- <input type="radio" name="dininghall" value="feast" /> Feast -->
+        <!-- </div> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal-feast" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                  <h4 class="modal-title"><%=@feast_date%></h4>
+                </div>
+                <div class="modal-body">
+                  <p><%= @feast_menu %></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        <br>
+    </div>
+      <br>
+
+
+    <form action="/create" method="post">
+      <p> Please select the dining hall</p>
+      <input type="radio" name="dininghall" value="bplate" type="text" checked/> Bplate</input>
+      <input type="radio" name="dininghall" value="covel" type="text"> Covel </input>
+      <input type="radio" name="dininghall" value="deneve" type="text"/> Deneve</input>
+      <input type="radio" name="dininghall" value="feast" type="text"/> Feast</input>
+      <input type = "submit" value="Buy">
+
+      <a href="/main/home" data-confirm="Do you really want to cancel?" data-method="post"><button>Cancel</button></a>
+
+      <a href="/main/buyerlist" data-confirm="Do have swipes you can sell?" ><button>Sell</button></form></div>
+
+    </form>
+    <!-- make sure to pass the dininghall value so seller can only access only data with that dining hall -->
+
+
+  <script>
+    var jsdining="0";
+    $('#screen-selector').on('click', function(event) {jsdining = event.target; console.log("You clicked on: ", jsdining);})
+
+    function getdining()
+    {
+    var input = document.getElementById("screen-selector");
+    alert(input);
+    }
+
+    function verifyorder(){
+      if(jsdining != "0"){
+          return true;
+      }
+      else{
+          alert("Sorry, you need to choose a dininghall");
+          document.getElementById('error').innerHTML="Sorry, you need to click a dininghall, try again";
+        }
+    }
+  </script>
+
+  <!-- <form action="/create">
+    <input type = "hidden" id="dininghall" name="dininghall" >
+    <input type = "submit" onclick="getdining(); ">
+  </form> -->
+
+</body>
